@@ -1,0 +1,16 @@
+@model IEnumerable<SS.Entities.Shop>
+
+
+@{
+    Layout = null;
+}
+
+<h2>Shops:</h2>
+
+@foreach(var shop in Model)
+{
+    <div>
+        <span>@shop.Name</span>
+    </div>
+}
+

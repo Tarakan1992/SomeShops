@@ -13,6 +13,8 @@ namespace SS.Data
             var shopRepository = serviceProvider.GetService<IShopRepository>();
             var productRepository = serviceProvider.GetService<IProductRepository>();
 
+            //TODO: Need to change database initialization method
+
             if (!shopRepository.All.Any())
             {
                 shopRepository.Insert(new Shop { Name = "Denis" });
