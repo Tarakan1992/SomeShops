@@ -37,5 +37,10 @@ namespace SS.Interfaces.Data
         /// </summary>
         /// <param name="id">Item Id.</param>
         void Delete(object id);
+
+        /// <summary>
+        /// Save all changes.
+        /// </summary>
+        void SaveChanges();
     };
 }

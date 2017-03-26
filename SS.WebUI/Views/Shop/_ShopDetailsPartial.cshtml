@@ -4,5 +4,5 @@
     <td>@Model.Name</td>
     <td><p>@Model.Address</p></td>
     <td>@Model.StartTime.ToString("HH:mm") - @Model.EndTime.ToString("HH:mm")</td>
-    <td><a asp-controller="Product" asp-action="Index" asp-route-id="@Model.Id">Products</a></td>
+    <td><a asp-controller="Product" asp-action="Index" asp-route-shopId="@Model.Id">Products</a></td>
 </tr>

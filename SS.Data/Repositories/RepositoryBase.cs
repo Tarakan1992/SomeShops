@@ -59,6 +59,10 @@ namespace SS.Data.Repositories
             }
 
             dbSet.Add(obj);
+        }
+
+        public void SaveChanges()
+        {
             context.SaveChanges();
         }
 

@@ -21,22 +21,28 @@ namespace SS.Data
 
                 for (var i = 0; i < 200; i++)
                 {
-                    shopRepository.Insert(new Shop { Name = $"Shop {i + 1}", Address  = $"Some street {i + 1}", StartTime = startDate, EndTime = endDate });
+                    var shop = new Shop { Name = $"Shop {i + 1}", Address = $"Some street {i + 1}", StartTime = startDate, EndTime = endDate };
+                    shopRepository.Insert(shop);
                 }
+
+                shopRepository.SaveChanges();
 
                 foreach (var shop in shopRepository.All.ToList())
                 {
-                    for (int i = 0; i < 200; i++)
+                    for (var j = 0; j < 200; j++)
                     {
-                        productRepository.Insert(
-                            new Product
-                            {
-                                Name = $"Product {i + 1}",
-                                Description = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-                                ShopId = shop.Id
-                            });
+                        var product = new Product
+                        {
+                            Name = $"Product {j + 1}",
+                            Description = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+                            ShopId = shop.Id
+                        };
+
+                        productRepository.Insert(product);
                     }
                 }
+
+                productRepository.SaveChanges();
             }
         }
     }

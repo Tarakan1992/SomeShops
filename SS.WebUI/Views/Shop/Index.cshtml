@@ -1,4 +1,4 @@
-@model SS.WebUI.Models.ListModel
+@model SS.WebUI.Models.InfinityScrollListModel
 
 <div class="panel panel-default">
     <div class="panel-heading">Shops</div>
@@ -12,4 +12,4 @@
     </table>
 </div>
 
-@Html.Partial("_InfinityListPartial", ViewContext.RouteData.Values["controller"].ToString())
+@Html.Partial("_InfinityListPartial", Model.InfinityScrollModel)

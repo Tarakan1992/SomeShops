@@ -61,10 +61,11 @@ namespace SS.WebUI.Controllers
 
         public override IActionResult Index()
         {
-            var model = new ListModel
+            var model = new InfinityScrollListModel
             {
                 Items = GetBlockItems(),
-                ItemViewName = ItemViewName
+                ItemViewName = ItemViewName,
+                InfinityScrollModel = new InfinityScrollModel { Url = Url.Action("InfinateScroll"), Params = new List<string>() }
             };
 
             return View(model);

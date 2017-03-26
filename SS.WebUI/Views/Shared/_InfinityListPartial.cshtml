@@ -1,4 +1,4 @@
-@model string
+@model SS.WebUI.Models.InfinityScrollModel
 
 
 <div id="loadingDiv"
@@ -17,8 +17,15 @@
 
             inProgress = true;
             $("#loadingDiv").show();
+            $.post("@Model.Url",
+            {
+                @foreach (var param in Model.Params)
+                {
+                    @:@Html.Raw(param) ,
+                }
 
-            $.post("@Url.Action("InfinateScroll", Model)", { "BlockNumber": BlockNumber },
+                "BlockNumber" : BlockNumber
+            },
                     function (data) {
 
                         BlockNumber = BlockNumber + 1;
