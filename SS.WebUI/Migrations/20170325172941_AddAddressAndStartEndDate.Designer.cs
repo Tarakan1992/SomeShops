@@ -8,9 +8,10 @@ using SS.Data;
 namespace SS.WebUI.Migrations
 {
     [DbContext(typeof(SomeShopsContext))]
-    partial class SomeShopsContextModelSnapshot : ModelSnapshot
+    [Migration("20170325172941_AddAddressAndStartEndDate")]
+    partial class AddAddressAndStartEndDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

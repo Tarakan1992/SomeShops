@@ -35,3 +35,8 @@ textarea {
         display: none;
     }
 }
+
+
+.body-content{
+    padding-top : 40px;
+}

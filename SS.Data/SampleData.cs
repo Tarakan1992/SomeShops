@@ -13,24 +13,28 @@ namespace SS.Data
             var shopRepository = serviceProvider.GetService<IShopRepository>();
             var productRepository = serviceProvider.GetService<IProductRepository>();
 
-            //TODO: Need to change database initialization method
-
             if (!shopRepository.All.Any())
             {
-                shopRepository.Insert(new Shop { Name = "Denis" });
-                shopRepository.Insert(new Shop { Name = "Kristina"});
-                shopRepository.Insert(new Shop { Name = "Alexander"});
-                shopRepository.Insert(new Shop { Name = "Sergey"});
-                shopRepository.Insert(new Shop { Name = "Alexey"});
-                shopRepository.Insert(new Shop { Name = "Vadim"});      
-            }
-            else if (!productRepository.All.Any())
-            {
+                var startDate = new DateTime(1, 1, 1, 10, 0, 0);
+                var endDate = new DateTime(1, 1, 1, 20, 0, 0);
+
+
+                for (var i = 0; i < 200; i++)
+                {
+                    shopRepository.Insert(new Shop { Name = $"Shop {i + 1}", Address  = $"Some street {i + 1}", StartTime = startDate, EndTime = endDate });
+                }
+
                 foreach (var shop in shopRepository.All.ToList())
                 {
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 200; i++)
                     {
-                        productRepository.Insert(new Product { Name = $"Product{i}", Description = "Some description.", ShopId = shop.Id });
+                        productRepository.Insert(
+                            new Product
+                            {
+                                Name = $"Product {i + 1}",
+                                Description = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+                                ShopId = shop.Id
+                            });
                     }
                 }
             }

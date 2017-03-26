@@ -27,8 +27,5 @@
     <ProjectReference Include="..\SS.Entities\SS.Entities.csproj" />
     <ProjectReference Include="..\SS.Interfaces\SS.Interfaces.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Shop\" />
-  </ItemGroup>
 
 </Project>

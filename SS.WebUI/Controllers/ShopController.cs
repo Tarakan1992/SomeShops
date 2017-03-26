@@ -1,20 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
+using SS.Entities;
 using SS.Interfaces.Data;
+using System;
 
 namespace SS.WebUI.Controllers
 {
-    public class ShopController : Controller
+    public class ShopController : DomainWithInfinityScrollController<Shop, IShopRepository>
     {
-        protected IShopRepository _shopRepository;
+        protected override string ItemViewName => "_ShopDetailsPartial";
 
-        public ShopController(IShopRepository shopRepository)
+        public ShopController(IShopRepository repository, IServiceProvider serviceProvider)
+            : base(repository, serviceProvider)
         {
-            _shopRepository = shopRepository;
-        }
-
-        public IActionResult Index()
-        {
-            return View(_shopRepository.All);
         }
     }
 }

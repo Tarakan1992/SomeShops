@@ -1,0 +1,32 @@
+@model string
+
+
+<div id="loadingDiv"
+     style="text-align: center; display: none; margin-bottom: 20px;">
+    <h1 class="h1">Loading...</h1>
+</div>
+
+<script type="text/javascript">
+    var BlockNumber = 2;
+    var NoMoreData = false;
+    var inProgress = false;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() -
+        $(window).height() && !NoMoreData && !inProgress) {
+
+            inProgress = true;
+            $("#loadingDiv").show();
+
+            $.post("@Url.Action("InfinateScroll", Model)", { "BlockNumber": BlockNumber },
+                    function (data) {
+
+                        BlockNumber = BlockNumber + 1;
+                        NoMoreData = data.noMoreData;
+                        $("#InfinityListDiv").append(data.htmlString);
+                        $("#loadingDiv").hide();
+                        inProgress = false;
+                    });
+        }
+    });
+</script>

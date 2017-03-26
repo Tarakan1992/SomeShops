@@ -1,10 +1,12 @@
-@model SS.WebUI.Models.ListModel
+﻿@model SS.WebUI.Models.ListModel
+
+<h4><a asp-controller="Shop">Shops</a></h4>
 
 <div class="panel panel-default">
     <div class="panel-heading">Shops</div>
     <table class="table">
-        <thead> 
-            <tr><th>Name</th><th>Address</th><th>Shop Mode</th></tr> 
+        <thead>
+            <tr><th>Name</th><th>Description</th></tr>
         </thead>
         <tbody id="InfinityListDiv">
             @Html.Partial("_ItemsListPartial", Model)
